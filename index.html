@@ -35,7 +35,6 @@
         
         <button id="check-value">Are 'reader' valoarea 1? (Ex 6)</button>
         
-        <button id="clear-display">Sterge textul de mai jos</button>
     </div>
 
     <div class="box">
@@ -55,17 +54,17 @@
 
         const output = document.getElementById("output");
 
-        // Functia originala
+        
         function alertCookie() {
             alert(document.cookie);
         }
 
-        // Exemplu 1: Show all
+       
         document.getElementById("show-all").addEventListener("click", () => {
             output.textContent = "> " + document.cookie;
         });
 
-        // Exemplu 2: Get sample cookie 'test2'
+        
         document.getElementById("get-test2").addEventListener("click", () => {
             const val = document.cookie
                 .split("; ")
@@ -74,7 +73,7 @@
             output.textContent = "> Valoarea lui test2 este: " + val;
         });
 
-        // Exemplu 3: Do something only once
+      
         document.getElementById("do-once").addEventListener("click", () => {
             if (!document.cookie.split("; ").find((row) => row.startsWith("executat-o-data"))) {
                 document.cookie = "executat-o-data=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=Lax";
@@ -84,28 +83,24 @@
             }
         });
 
-        // Exemplu 4: Reset the previous cookie
+       
         document.getElementById("reset-once").addEventListener("click", () => {
             document.cookie = "executat-o-data=; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax";
             output.textContent = "> Cookie-ul de executie a fost resetat!";
         });
 
-        // Exemplu 5: Check cookie existence
+        
         document.getElementById("check-exists").addEventListener("click", () => {
             const exista = document.cookie.split(";").some((item) => item.trim().startsWith("reader="));
             output.textContent = exista ? "> Cookie-ul 'reader' exista." : "> Cookie-ul 'reader' NU exista.";
         });
 
-        // Exemplu 6: Check specific value
+        
         document.getElementById("check-value").addEventListener("click", () => {
             const areValoare = document.cookie.split(";").some((item) => item.includes("reader=1"));
             output.textContent = areValoare ? "> Da, reader are valoarea 1." : "> Nu, reader are alta valoare.";
         });
 
-        // Sterge display
-        document.getElementById("clear-display").addEventListener("click", () => {
-            output.textContent = "Apasati un buton...";
-        });
-    </script>
+        
 </body>
 </html>
